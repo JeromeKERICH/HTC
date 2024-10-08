@@ -1,0 +1,928 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color:  rgb(62, 49, 75);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    color: white;
+}
+
+.navbar .logo a{
+    width: 100px;
+    text-decoration: none;
+    color: goldenrod;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.navbar .logo a h1 {
+    font-size: 30px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #333;
+    padding: 10px 0;
+    list-style-type: none;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.dropdown-content li {
+    text-align: start;
+}
+
+.dropdown-content li a {
+    font-size: 12px;
+    color: lightcoral;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #555;
+}
+
+.dropdown .arrow {
+    
+    font-size: 25px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+/* Hamburger menu for mobile view */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        height: 300px;
+        margin-top: 30px;
+        width: 200px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        border-radius: 5px;
+    }
+
+    .navbar .logo a h1 {
+        font-size: 25px;
+    }
+
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Transition for hamburger animation */
+.hamburger.toggle span:nth-child(1) {
+    transform: rotate(-45deg) translate(-10px, 10px);
+}
+
+.hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle span:nth-child(3) {
+    transform: rotate(45deg) translate(-6px, -5px);
+}
+
+/* Hero section */
+
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f5f5f5;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ce4a71;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    margin-bottom: 20px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: cadetblue;
+}
+
+.check-availability {
+    background-color: #3a4c5f;
+}
+
+.contact-us {
+    background-color: rgb(63, 180, 132);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    .hero-section {
+        margin-top: 100px;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+
+}
+
+@media (max-width: 850px) {
+    .hero-section {
+        margin-top: 80px;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .hero-cta {
+        margin-top: 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 80px;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .hero-content {
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+        text-align: end;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        text-align: start;
+    }
+
+    .hero-cta {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+
+
+
+
+/* CTA Section */  
+
+.htc-cta-section {
+    background-color: rgb(62, 49, 75);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgb(63, 180, 132);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.htc-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+.htc-btn:hover  {
+    background-color: cadetblue;
+}
+
+.htc-primary-btn {
+    background-color: cadetblue;
+    color: white;
+}
+
+.htc-primary-btn:hover {
+    background-color: #218838;
+}
+
+.htc-secondary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.htc-secondary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cta-content h2 {
+        font-size: 25px;
+    }
+    .cta-content p {
+        font-size: 16px;
+    }
+    .htc-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+
+/* About us section */
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ce4a71;
+}
+
+.about-content p {
+    text-align: start;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.services-overview {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    text-align: start;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+}
+
+/* CTA buttons */
+.service-cta {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #3a4c5f;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.service-cta:hover {
+    background-color: cadetblue;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+
+    .about-content h2 {
+        font-size: 25px;
+    }
+
+    .about-section {
+        padding: 20px;
+    }
+    .services-overview {
+        flex-direction: column;
+    }
+
+    .service-box {
+        margin-bottom: 20px;
+    }
+
+    .service-box h3 {
+        font-size: 20px;
+    }
+}
+
+
+
+
+/* Services section */
+
+.htc-services {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.htc-services h2 {
+    font-size: 2.5rem;
+    color: #ce4a71;
+    margin-bottom: 40px;
+}
+
+/* Grid layout for the services section */
+.htc-services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Service card styling */
+.htc-service-card {
+    
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.htc-service-card:hover {
+    transform: translateY(-10px);
+}
+
+.htc-service-img {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.htc-service-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.htc-service-details {
+    flex: 2;
+    text-align: left;
+}
+
+.htc-service-details h3 {
+    font-size: 1.8rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.htc-service-details p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* CTA button */
+.htc-btn {
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color:  #3a4c5f;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.htc-btn:hover {
+    background-color: cadetblue;
+}
+
+/* Responsive Layout */
+@media (min-width: 992px) {
+    .htc-services {
+        padding: 20px;
+    }
+
+    
+    
+    .htc-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    
+    }
+
+    .htc-service-card {
+        flex-direction: row;
+    }
+
+    .htc-service-img {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .htc-services h2 {
+        font-size: 25px;
+    }
+
+    .htc-service-details h3 {
+        font-size: 20px;
+    }
+
+    .htc-services {
+        padding: 20px;
+    }
+    .htc-service-card {
+        flex-direction: column;
+    }
+
+    .htc-service-img {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* FAQS */
+
+.htc-faq-section {
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.faq-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ce4a71;
+    margin-bottom: 40px;
+}
+
+.faq-container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+}
+
+.faq-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question h3 {
+    font-weight: 400;
+}
+
+.faq-question:hover {
+    background-color: #ececec;
+}
+
+.faq-answer {
+    display: none;
+    padding: 20px;
+    font-size: 1rem;
+    color: #555;
+    background-color: white;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    color: cadetblue;
+    font-weight: bold;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+    color: cadetblue;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .htc-faq-section {
+        padding: 20px;
+    }
+    .faq-heading {
+        font-size: 25px;
+    }
+
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+.htc-contact-section {
+    padding: 50px 20px;
+    background-color:  #f9f9f9;
+}
+
+.contact-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ce4a71;
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    margin: 0 auto;
+    display: flex;
+    gap: 40px; /* Space between info and form */
+}
+
+.contact-info {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info h3 {
+    margin-bottom: 15px;
+    color: #0056b3;
+    text-align: center;
+    font-size: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 30px;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 50px;
+}
+
+
+.contact-info ul li i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #007bff; /* Icon color */
+    font-size: 1.2rem; /* Icon size */
+}
+
+.contact-form {
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.submit-button {
+    background-color: #3a4c5f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: cadetblue;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .htc-contact-section {
+        display: block;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
+
+    .contact-form  {
+        width: 100%;
+    }
+    .contact-heading {
+        font-size: 25px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .submit-button {
+        font-size: 1rem;
+    }
+}
+
+
+/* footer */
+.htc-footer {
+    background-color: rgb(62, 49, 75); 
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+
+.footer-info, .footer-links, .footer-contact {
+    flex: 1 1 30%; 
+    margin: 10px;
+}
+
+.footer-info h3, .footer-links h4, .footer-contact h4 {
+    margin-bottom: 15px;
+    color: cadetblue;
+    font-size: 25px;
+}
+
+.footer-links ul, .footer-contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a, .footer-contact ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover, .footer-contact ul li a:hover {
+    color: #007bff; 
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .footer-info, .footer-links, .footer-contact {
+        text-align: start;
+        flex: 1 1 100%; 
+    }
+}
